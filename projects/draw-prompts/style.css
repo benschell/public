@@ -1,0 +1,183 @@
+/* Drawing prompt generator — kid-friendly screen UI + landscape print stylesheet. */
+
+:root {
+  --bg: #fff8e7;
+  --ink: #2b2b2b;
+  --accent: #ff6b6b;
+  --accent2: #4ecdc4;
+  --accent3: #ffd166;
+  --card: #ffffff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Comic Sans MS", "Chalkboard SE", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 0 2rem;
+  opacity: 0.7;
+}
+
+.tier-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.tier-btn {
+  font: inherit;
+  font-size: 1.15rem;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid transparent;
+  background: var(--card);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.1s ease, border-color 0.15s ease;
+}
+.tier-btn:hover { transform: translateY(-2px); }
+.tier-btn.active {
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.tier-description {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+  opacity: 0.65;
+  min-height: 1.4em;
+}
+
+.prompt-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prompt-text {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.action-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  font: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem 1.75rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  color: white;
+  box-shadow: var(--shadow);
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+.action-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.action-btn.primary { background: var(--accent); }
+.action-btn.secondary { background: var(--accent2); }
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0.4;
+  font-size: 0.85rem;
+}
+
+/* The printable view — hidden on screen, takes over on print. */
+.printable {
+  display: none;
+}
+
+/* PRINT — landscape letter, prompt at top, big drawing box filling the rest. */
+@media print {
+  @page {
+    size: letter landscape;
+    margin: 0.35in;
+  }
+  html, body { background: white; }
+  main { display: none; }
+
+  .printable {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    page-break-after: avoid;
+  }
+
+  .printable-header {
+    border-bottom: 3px solid #000;
+    padding-bottom: 0.35in;
+    margin-bottom: 0.2in;
+  }
+
+  .printable-prompt {
+    font-size: 28pt;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 0.15in;
+    font-family: "Comic Sans MS", "Chalkboard SE", system-ui, sans-serif;
+  }
+
+  .printable-meta {
+    font-size: 12pt;
+    display: flex;
+    gap: 1.5in;
+    font-family: system-ui, sans-serif;
+  }
+
+  .printable-meta span {
+    display: inline-block;
+    min-width: 2.5in;
+    border-bottom: 1.5px solid #000;
+    padding-bottom: 2pt;
+  }
+
+  .printable-box {
+    flex: 1;
+    border: 3px solid #000;
+    border-radius: 10pt;
+  }
+}
