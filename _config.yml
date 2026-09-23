@@ -1,0 +1,5 @@
+title: Schell Family
+exclude: ["CLAUDE.md", "MEMORY.md", ".claude"]
+baseurl: ""
+url: "https://public.schellfam.link"
+markdown: kramdown

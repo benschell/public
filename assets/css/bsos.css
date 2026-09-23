@@ -1,0 +1,305 @@
+/* BSOS — shared stylesheet for hand-written HTML and Jekyll-converted Markdown.
+   Palette: warm minimal (parchment + ochre).
+   Typography: serif headings, sans body. */
+
+:root {
+  --bg: #f6f1e8;
+  --surface: #fdfaf3;
+  --surface-soft: #f1ead9;
+  --ink: #2d2418;
+  --ink-soft: #6b5e4a;
+  --ink-faint: #9a8d77;
+  --rule: #e5dcc8;
+  --accent: #c08a2e;
+  --accent-deep: #8d6320;
+  --accent-soft: #f0e3c4;
+  --good: #5a7a4a;
+  --warn: #b87333;
+  --bad: #a8412a;
+  --shadow: 0 1px 0 rgba(0,0,0,0.02), 0 4px 16px rgba(80, 60, 30, 0.06);
+  --shadow-strong: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(80, 60, 30, 0.08);
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1612;
+    --surface: #23201a;
+    --surface-soft: #2d2920;
+    --ink: #ece4d2;
+    --ink-soft: #a89e89;
+    --ink-faint: #7a705e;
+    --rule: #3a342a;
+    --accent: #e0a850;
+    --accent-deep: #c08a2e;
+    --accent-soft: #2e2618;
+    --shadow: 0 1px 0 rgba(0,0,0,0.2), 0 4px 16px rgba(0,0,0,0.3);
+    --shadow-strong: 0 2px 4px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layouts ---------- */
+
+.bsos-doc { max-width: 740px; margin: 0 auto; padding: 56px 28px 96px; }
+
+.bsos-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+@media (max-width: 800px) {
+  .bsos-layout { grid-template-columns: 1fr; }
+  .bsos-sidebar { display: none; }
+}
+.bsos-sidebar {
+  padding: 48px 24px 48px 32px;
+  border-right: 1px solid var(--rule);
+  font-size: 14px;
+}
+.bsos-sidebar .home {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  border-bottom: none;
+}
+.bsos-sidebar .home::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+}
+.bsos-sidebar ul { list-style: none; padding: 0; margin: 0; }
+.bsos-sidebar li { margin: 4px 0; }
+.bsos-sidebar a {
+  color: var(--ink-soft); text-decoration: none; display: block;
+  padding: 5px 10px; border-radius: 5px; border-bottom: none;
+}
+.bsos-sidebar a:hover { background: var(--accent-soft); color: var(--accent-deep); }
+.bsos-sidebar a.active { color: var(--accent-deep); background: var(--accent-soft); font-weight: 500; }
+.bsos-sidebar .group {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-faint); margin: 20px 0 6px; padding: 0 10px;
+}
+.bsos-main { padding: 56px 56px 96px; max-width: 760px; }
+@media (max-width: 800px) { .bsos-main { padding: 32px 24px; } }
+
+/* ---------- Wide & breakout ---------- */
+
+/* Opt-in: widen the whole document column for content-heavy, less prose-y pages. */
+.bsos-doc.wide { max-width: 1080px; }
+
+/* Opt-in child: let one block escape the reading column and span the full
+   viewport width — for wide tables, calendars, dashboards. Sits inside a
+   normal .bsos-doc; everything around it stays at reading width. Cap the
+   content by giving the inner element a max-width + margin:0 auto. */
+.bsos-breakout {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+@media print {
+  .bsos-breakout { width: auto; margin-left: 0; }
+}
+
+/* ---------- Masthead ---------- */
+
+.bsos-kicker {
+  font-size: 13px; color: var(--ink-soft); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;
+  border-bottom: none;
+}
+.bsos-kicker:hover { color: var(--accent-deep); }
+.bsos-kicker::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+}
+.bsos-dek { font-size: 17px; color: var(--ink-soft); margin: 0 0 32px; max-width: 560px; }
+
+.bsos-breadcrumb { font-size: 13px; color: var(--ink-soft); margin-bottom: 8px; }
+.bsos-breadcrumb a { color: var(--ink-soft); border-bottom: none; }
+.bsos-breadcrumb a:hover { color: var(--accent-deep); }
+
+/* ---------- Typography (also styles raw Markdown output) ---------- */
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.005em; }
+h1 { font-size: 38px; line-height: 1.2; margin: 0 0 14px; letter-spacing: -0.015em; }
+h2 { font-size: 24px; margin: 48px 0 14px; }
+h2::before {
+  content: ""; display: inline-block; width: 24px; height: 2px;
+  background: var(--accent); vertical-align: middle; margin-right: 10px; transform: translateY(-4px);
+}
+h3 { font-family: var(--sans); font-size: 16px; margin: 28px 0 8px; font-weight: 600; }
+h4 { font-family: var(--sans); font-size: 14px; margin: 20px 0 6px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 16px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+li > ul, li > ol { margin-top: 4px; margin-bottom: 4px; }
+
+a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+a:hover { border-bottom-color: var(--accent); }
+
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+blockquote {
+  margin: 20px 0; padding: 12px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface); border-radius: 0 6px 6px 0;
+  color: var(--ink-soft); font-style: italic;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+code {
+  font-family: var(--mono); font-size: 0.88em;
+  background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; color: var(--accent-deep);
+}
+pre {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
+  padding: 16px 18px; overflow-x: auto; font-size: 14px; line-height: 1.55;
+  box-shadow: var(--shadow);
+}
+pre code { background: none; padding: 0; color: var(--ink); font-size: inherit; }
+
+img { max-width: 100%; height: auto; border-radius: 6px; }
+
+/* ---------- Tables ---------- */
+
+table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  margin: 18px 0 32px; font-size: 14px;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  overflow: hidden; box-shadow: var(--shadow);
+}
+th, td { text-align: left; padding: 12px 16px; }
+th {
+  font-weight: 600; color: var(--ink-soft); font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.06em; background: var(--accent-soft);
+}
+tbody tr { border-top: 1px solid var(--rule); }
+td.num, th.num { font-variant-numeric: tabular-nums; text-align: right; font-family: var(--mono); }
+
+/* ---------- Components ---------- */
+
+.callout {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 18px 22px; margin: 24px 0; box-shadow: var(--shadow); font-size: 15px;
+}
+.callout > :last-child { margin-bottom: 0; }
+.callout .tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep);
+  background: var(--accent-soft); padding: 3px 10px; border-radius: 20px; margin-bottom: 8px;
+}
+.callout.good { border-left: 3px solid var(--good); }
+.callout.good .tag { color: var(--good); background: rgba(90, 122, 74, 0.12); }
+.callout.warn { border-left: 3px solid var(--warn); }
+.callout.warn .tag { color: var(--warn); background: rgba(184, 115, 51, 0.12); }
+.callout.bad  { border-left: 3px solid var(--bad);  }
+.callout.bad  .tag { color: var(--bad);  background: rgba(168, 65, 42, 0.12); }
+
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px; margin: 20px 0 32px;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 18px 20px; box-shadow: var(--shadow); position: relative;
+}
+.card.accent::before {
+  content: ""; position: absolute; top: 0; left: 18px; right: 18px; height: 2px;
+  background: var(--accent); border-radius: 0 0 2px 2px;
+}
+.card .label {
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 6px; margin-top: 4px;
+}
+.card .title {
+  font-family: var(--serif); font-weight: 600; font-size: 18px; margin-bottom: 8px;
+}
+.card .body { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+
+.bsos-footer {
+  margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--rule);
+  font-size: 13px; color: var(--ink-soft);
+}
+.bsos-footer a { color: var(--ink-soft); border-bottom-color: var(--rule); }
+.bsos-footer a:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+
+/* ---------- Worklist ----------
+   A batch of items grouped under a shared target and acted on together, plus
+   the vocabulary for showing how sure a machine-proposed value is. Generic on
+   purpose: any generated document with "here is a pile of things to apply"
+   should reuse these rather than inventing its own. */
+
+.batch h3 { margin-top: 0; }
+
+.meta { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 10px; }
+
+.token-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.token {
+  display: inline-flex; align-items: baseline; gap: 6px; margin: 0;
+  font-size: 12.5px; font-family: var(--mono);
+  background: var(--surface-soft); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 3px 8px;
+}
+.token .marker { font-family: var(--sans); font-size: 11px; white-space: nowrap; }
+
+/* Certainty of a value a machine proposed rather than one that is known.
+   Colour is a reinforcement here, never the only signal — callers also emit
+   a text marker, so the meaning survives with no stylesheet. */
+.token.confidence-medium { border-color: var(--warn); }
+.token.confidence-medium .marker { color: var(--warn); }
+.token.confidence-low {
+  border-color: var(--bad); background: rgba(168, 65, 42, 0.07);
+}
+.token.confidence-low .marker { color: var(--bad); }
+tr.confidence-medium > td { background: rgba(184, 115, 51, 0.05); }
+tr.confidence-low > td { background: rgba(168, 65, 42, 0.05); }
+
+/* A subdued secondary note attached to a value. */
+.annotation { display: inline-block; font-size: 12px; color: var(--ink-faint); }
+.annotation.warn { color: var(--bad); }
+
+/* Wide content (tables, diagrams) scrolls inside its own box so the page
+   body never scrolls horizontally. */
+.scroll-x { overflow-x: auto; max-width: 100%; }
+.scroll-x table { margin: 0; }
+
+/* ---------- Print ---------- */
+
+@media print {
+  /* Print background colors as designed. Chrome strips them by default; this
+     opts every element back in (callouts, badges, calendar row colors, the
+     don'ts panel on henry-meltdown, etc.). */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  html, body { background: white; color: black; font-size: 11pt; }
+  .bsos-sidebar, .bsos-breadcrumb, .bsos-footer { display: none; }
+  .bsos-doc, .bsos-main { padding: 0; max-width: none; }
+  .bsos-layout { display: block; }
+  a { color: inherit; border-bottom: none; }
+  .callout, .card, pre, table { box-shadow: none; }
+}
