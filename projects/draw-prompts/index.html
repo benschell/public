@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- audience: public -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What should I draw?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>What should I draw?</h1>
+    <p class="subtitle">Pick how wild, then hit the button.</p>
+
+    <div class="tier-row" id="tier-row"></div>
+    <p class="tier-description" id="tier-description"></p>
+
+    <div class="prompt-card">
+      <p id="prompt-text">Loading an idea…</p>
+    </div>
+
+    <div class="action-row">
+      <button class="action-btn primary" id="new-btn">🎲 Another idea!</button>
+      <button class="action-btn secondary" id="print-btn">🖨️ Print this!</button>
+    </div>
+
+    <footer>schellfam draw-prompts · made with love</footer>
+  </main>
+
+  <!-- Hidden on screen, becomes the page when printed. -->
+  <section class="printable" aria-hidden="true">
+    <header class="printable-header">
+      <p class="printable-prompt" id="printable-prompt"></p>
+      <div class="printable-meta">
+        <span>Drawn by:</span>
+        <span>Date:</span>
+      </div>
+    </header>
+    <div class="printable-box"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

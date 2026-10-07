@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/bsos.css' | relative_url }}">
+</head>
+<body>
+  <div class="bsos-doc">
+    <header>
+      <a href="{{ '/' | relative_url }}" class="bsos-kicker">{{ site.title }}</a>
+      {% unless page.url == "/" %}<h1>{{ page.title | default: site.title }}</h1>{% endunless %}
+      {% if page.dek %}<p class="bsos-dek">{{ page.dek }}</p>{% endif %}
+    </header>
+
+    {{ content }}
+
+    <footer class="bsos-footer">
+      <a href="{{ '/' | relative_url }}">Home</a> &middot; &copy; Schell Family
+    </footer>
+  </div>
+</body>
+</html>
