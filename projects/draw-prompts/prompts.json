@@ -1,0 +1,211 @@
+{
+  "tiers": {
+    "easy": {
+      "label": "🐣 Easy",
+      "description": "For the twins — simple, recognizable, one fun idea.",
+      "templates": [
+        "A {creature} that is {simple_action}.",
+        "A {creature} with {accessory}.",
+        "A {creature} and a {creature} being best friends."
+      ],
+      "slots": {
+        "creature": [
+          "cat", "puppy", "kitten", "dragon", "bunny", "baby dinosaur",
+          "friendly monster", "unicorn", "panda", "frog", "robot", "alien",
+          "mermaid", "fairy", "owl", "fox", "turtle", "duck", "elephant",
+          "penguin", "shark", "bear cub", "ladybug", "dinosaur"
+        ],
+        "simple_action": [
+          "dancing", "jumping really high", "sleeping in a flower",
+          "eating ice cream", "flying with a balloon", "smiling at a butterfly",
+          "hugging a tree", "splashing in a puddle", "blowing bubbles",
+          "riding a tricycle", "baking a cake", "wearing pajamas",
+          "playing in the rain", "reading a book", "building a sandcastle"
+        ],
+        "accessory": [
+          "a big silly hat", "three balloons", "an ice cream cone",
+          "a tiny cape", "a sparkly crown", "a stripey scarf",
+          "a flower in their hair", "butterfly wings", "rainbow socks",
+          "a bowtie", "polka-dot pajamas", "a backpack full of snacks"
+        ]
+      }
+    },
+
+    "medium": {
+      "label": "🦊 Medium",
+      "description": "A bit more going on — a character, a setting, and a twist.",
+      "templates": [
+        "A {adj} {creature} {action} at {place}.",
+        "A {creature} {action} with a {object} in {place}.",
+        "A {creature} and a {creature} {action} together while {bystander_action}.",
+        "A {adj} {creature} discovers a {object} hidden in {place}."
+      ],
+      "slots": {
+        "creature": [
+          "wizard", "knight", "robot", "T-rex", "shark", "ninja", "pirate",
+          "astronaut", "witch", "vampire kid", "ghost", "sea turtle", "octopus",
+          "kangaroo", "lion", "dragon", "mermaid", "explorer", "scientist",
+          "chef cat", "detective dog", "viking", "cowboy frog"
+        ],
+        "adj": [
+          "grumpy", "sneaky", "sleepy", "brave", "glittery", "invisible",
+          "gigantic", "tiny", "rainbow-colored", "extremely polite",
+          "upside-down", "two-headed", "musical", "smelly but lovable"
+        ],
+        "action": [
+          "building a treehouse", "surfing", "racing go-karts", "baking cookies",
+          "exploring a cave", "playing soccer", "painting a mural",
+          "riding a roller coaster", "fishing for something weird",
+          "having a tea party", "making a snowman", "rescuing a baby dragon",
+          "running a lemonade stand", "putting on a play"
+        ],
+        "place": [
+          "the beach", "the moon", "a haunted castle", "a candy mountain",
+          "the bottom of the ocean", "a snow fort", "a jungle treehouse",
+          "an enchanted forest", "the top of a volcano", "a pirate ship",
+          "a flying island", "a secret laboratory", "a giant pumpkin patch"
+        ],
+        "object": [
+          "jetpack", "fishing rod", "magic wand", "lightsaber",
+          "banana phone", "golden key", "treasure map", "magic potion",
+          "robot dog", "pet dragon", "talking sandwich", "invisibility cloak",
+          "rocket-powered skateboard"
+        ],
+        "bystander_action": [
+          "a marching band plays nearby", "the sky turns purple",
+          "a parade of penguins walks by", "it rains gumdrops",
+          "a friendly ghost watches from a window", "a yeti waves hello"
+        ]
+      }
+    },
+
+    "wild": {
+      "label": "🐉 Wild",
+      "description": "Big, absurd, multi-part scenes. For Henry and Adeline.",
+      "templates": [
+        "A {wild_subject} {wild_action_phrase} {wild_object_phrase} {wild_twist}.",
+        "A {wild_adj} {wild_creature} riding a {vehicle} while {chase_clause} and {twist_clause}.",
+        "A {profession} {wild_creature} {gerund_action} an army of {plural_thing} in {weird_place} during a {weird_event}.",
+        "{wild_subject} and {wild_subject} team up to {epic_goal}, but {complication}."
+      ],
+      "slots": {
+        "wild_subject": [
+          "a T-rex", "a space-pirate octopus", "a grandma robot",
+          "a vampire goldfish", "a ninja sloth", "a disco dragon",
+          "a cowboy alien", "a wizard hippo", "a tap-dancing yeti",
+          "a samurai duck", "an evil but polite squirrel",
+          "a mad-scientist chinchilla", "a bounty-hunter unicorn"
+        ],
+        "wild_action_phrase": [
+          "driving a monster truck", "piloting a banana submarine",
+          "riding a tornado", "skateboarding through a black hole",
+          "surfing on a slice of pizza", "tap-dancing on top of",
+          "launching a rocket made of", "hosting a cooking show about",
+          "leading a marching band of", "rollerblading past"
+        ],
+        "wild_object_phrase": [
+          "crushing aquariums", "chasing flaming marshmallows",
+          "juggling exploding pineapples", "delivering pizzas to sleeping vampires",
+          "selling lemonade to confused yetis", "racing rocket-powered toasters",
+          "babysitting a hundred baby raptors",
+          "stealing the world's largest gummy worm",
+          "training an army of squirrels"
+        ],
+        "wild_twist": [
+          "full of goldfish", "while it rains spaghetti",
+          "with a dozen kittens in the backseat", "underwater",
+          "on the moon", "during a volcano eruption",
+          "and everything is upside down", "while wearing a tutu",
+          "but the goldfish are wearing top hats",
+          "as the sun gets bored and goes to sleep"
+        ],
+        "wild_adj": [
+          "tap-dancing", "sparkling", "extremely confused", "two-headed",
+          "invisible (but you can see their hat)", "polka-dotted",
+          "ridiculously polite", "evil-but-also-kind-of-sweet",
+          "intergalactic", "world-famous", "spaghetti-loving"
+        ],
+        "wild_creature": [
+          "T-rex", "octopus", "hippo", "sloth", "dragon", "alien",
+          "wizard cat", "robot grandma", "pirate goldfish", "ninja sloth",
+          "viking platypus", "cowboy hamster", "samurai duck",
+          "disco walrus", "vampire kangaroo"
+        ],
+        "vehicle": [
+          "monster truck", "rocket-powered shopping cart", "flying bathtub",
+          "giant rubber duck", "skateboard made of jelly", "banana submarine",
+          "blimp shaped like a hot dog", "unicycle with jet engines",
+          "magic carpet that complains a lot",
+          "school bus piloted by squirrels"
+        ],
+        "chase_clause": [
+          "being chased by ninja chickens",
+          "throwing pancakes at evil clowns",
+          "outrunning a herd of bouncy moose",
+          "dodging laser beams from a disco ball",
+          "racing the world's grumpiest snail",
+          "trying not to wake up a sleeping dragon"
+        ],
+        "twist_clause": [
+          "the moon is laughing at them",
+          "spaghetti rains from the sky",
+          "everything is on fire (but in a cool way)",
+          "all the goldfish are voting",
+          "the sidewalk turns into a slide",
+          "gravity has the day off",
+          "the trees start singing show tunes"
+        ],
+        "profession": [
+          "billionaire", "ghost-hunting", "deep-sea-diving",
+          "pizza-delivery", "rocket-engineer", "stunt-double",
+          "rock-star", "spy", "mad-scientist", "school-principal"
+        ],
+        "gerund_action": [
+          "leading", "high-fiving", "outsmarting", "racing",
+          "feeding cupcakes to", "challenging to a dance-off",
+          "trying to organize", "writing a graphic novel about"
+        ],
+        "plural_thing": [
+          "squirrels in tiny capes", "robotic seagulls",
+          "marshmallow zombies", "tap-dancing skeletons",
+          "ninja goldfish", "rocket-powered hamsters",
+          "polite but evil unicorns", "very serious penguins",
+          "exploding bouncy balls", "talking pizza slices"
+        ],
+        "weird_place": [
+          "an underwater shopping mall",
+          "a haunted theme park on the moon",
+          "the world's biggest pillow fort",
+          "a candy factory run by raccoons",
+          "a library inside a volcano",
+          "a city floating on a giant turtle's back",
+          "a black hole that smells like waffles"
+        ],
+        "weird_event": [
+          "thunderstorm of jellybeans",
+          "parade for the world's smallest king",
+          "talent show judged by space cats",
+          "rain of glow-in-the-dark frogs",
+          "wedding of two grumpy volcanoes",
+          "championship hot-dog eating contest"
+        ],
+        "epic_goal": [
+          "steal the world's largest gummy worm",
+          "rescue the mayor of cheese-town",
+          "win the intergalactic karaoke championship",
+          "find the lost recipe for invisible spaghetti",
+          "build the tallest treehouse in the multiverse",
+          "outsmart a dragon who is also a lawyer"
+        ],
+        "complication": [
+          "the floor is lava (for real this time)",
+          "they only have a pool noodle to work with",
+          "everyone keeps forgetting their own name",
+          "a swarm of bees insists on singing backup",
+          "their pet dragon refuses to wake up",
+          "the moon keeps photobombing"
+        ]
+      }
+    }
+  }
+}
