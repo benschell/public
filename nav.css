@@ -1,0 +1,69 @@
+/* bsos site nav drawer (every tier). Scoped under .bsosnav-*; tokens fall back for pages without bsos.css. */
+.bsosnav-btn {
+  position: fixed; top: 12px; left: 12px; z-index: 10000;
+  width: 40px; height: 40px; border-radius: 8px;
+  border: 1px solid var(--rule, #e5dcc8);
+  background: var(--surface, #fdfaf3); color: var(--ink, #2d2418);
+  font: 20px/1 var(--sans, system-ui, sans-serif); cursor: pointer;
+  box-shadow: var(--shadow, 0 4px 16px rgba(80,60,30,.06));
+}
+.bsosnav-btn:hover { background: var(--accent-soft, #f0e3c4); }
+.bsosnav-backdrop {
+  position: fixed; inset: 0; z-index: 10001; background: rgba(0,0,0,.35); display: none;
+}
+.bsosnav-drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 10002; width: 320px; max-width: 90vw;
+  background: var(--surface, #fdfaf3); color: var(--ink, #2d2418);
+  border-right: 1px solid var(--rule, #e5dcc8);
+  box-shadow: var(--shadow-strong, 0 8px 24px rgba(80,60,30,.08));
+  font: 14px/1.4 var(--sans, system-ui, sans-serif);
+  display: none; flex-direction: column;
+}
+.bsosnav-open .bsosnav-backdrop, .bsosnav-open .bsosnav-drawer { display: flex; }
+.bsosnav-head {
+  display: flex; gap: 8px; align-items: center; padding: 12px;
+  border-bottom: 1px solid var(--rule, #e5dcc8);
+}
+.bsosnav-head a { color: var(--accent-deep, #8d6320); text-decoration: none; font-weight: 600; }
+.bsosnav-filter {
+  flex: 1; min-width: 0; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid var(--rule, #e5dcc8); background: var(--bg, #f6f1e8); color: inherit; font: inherit;
+}
+.bsosnav-close { background: none; border: 0; color: inherit; font-size: 18px; cursor: pointer; }
+.bsosnav-tree { overflow: auto; flex: 1; padding: 8px 4px 24px; margin: 0; }
+.bsosnav-tree ul { list-style: none; margin: 0; padding-left: 14px; }
+.bsosnav-tree > ul { padding-left: 4px; }
+.bsosnav-tree li { margin: 1px 0; }
+.bsosnav-row { display: flex; align-items: center; gap: 2px; }
+.bsosnav-caret {
+  flex: none; width: 18px; height: 22px; border: 0; background: none; color: var(--ink-faint, #9a8d77);
+  cursor: pointer; font-size: 10px; padding: 0;
+}
+.bsosnav-caret::before { content: "▸"; display: inline-block; transition: transform .12s; }
+.bsosnav-expanded > .bsosnav-row .bsosnav-caret::before { transform: rotate(90deg); }
+.bsosnav-leaf > .bsosnav-row .bsosnav-caret { visibility: hidden; }
+.bsosnav-tree a, .bsosnav-tree .bsosnav-label {
+  flex: 1; min-width: 0; padding: 2px 6px; border-radius: 4px; color: inherit; text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer;
+}
+.bsosnav-tree .bsosnav-dir > .bsosnav-row > a,
+.bsosnav-tree .bsosnav-dir > .bsosnav-row > .bsosnav-label { font-weight: 600; }
+.bsosnav-tree a:hover, .bsosnav-tree .bsosnav-label:hover { background: var(--accent-soft, #f0e3c4); }
+.bsosnav-tree a.bsosnav-current { background: var(--accent-soft, #f0e3c4); color: var(--accent-deep, #8d6320); }
+.bsosnav-collapsed > ul { display: none; }
+.bsosnav-hidden { display: none; }
+.bsosnav-badge {
+  display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px;
+  font: 600 11px/1.6 var(--sans, system-ui, sans-serif); text-transform: uppercase; letter-spacing: .04em;
+  background: var(--accent-soft, #f0e3c4); color: var(--accent-deep, #8d6320); vertical-align: middle;
+}
+@media print { .bsosnav-btn, .bsosnav-backdrop, .bsosnav-drawer { display: none !important; } }
+.bsosnav-section {
+  padding: 8px 8px 2px; font: 600 11px/1.6 var(--sans, system-ui, sans-serif);
+  text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint, #9a8d77);
+}
+.bsosnav-recent ul { padding: 0 14px 0 4px; margin: 0; }
+.bsosnav-recent li { display: flex; align-items: baseline; gap: 6px; }
+.bsosnav-recent a { padding-left: 20px; }
+.bsosnav-when { flex: none; font-size: 11px; color: var(--ink-faint, #9a8d77); font-variant-numeric: tabular-nums; }
+.bsosnav-filtering .bsosnav-recent, .bsosnav-filtering > .bsosnav-section { display: none; }
